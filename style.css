@@ -25,3 +25,73 @@
             background-color: #4b5563;
             color: #e5e7eb;
         }
+
+/* Estilo para a seção principal de habilidades */
+.habilidades-secao {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.habilidades-secao h2 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.habilidades-secao p {
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* Estilo para a tabela de habilidades */
+.tabela-habilidades {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabela-habilidades th, .tabela-habilidades td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabela-habilidades th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+
+/* Efeito de destaque ao passar o mouse */
+.habilidade-item:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+/* Estilo para o ícone de habilidade */
+.habilidade-icone {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+/* Responsividade básica para telas menores */
+@media (max-width: 600px) {
+    .habilidades-secao {
+        padding: 20px 10px;
+    }
+    .tabela-habilidades th, .tabela-habilidades td {
+        padding: 10px;
+    }
+}
