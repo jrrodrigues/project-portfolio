@@ -1,259 +1,145 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        'primary-bg-light': '#f3f4f6',
-                        'secondary-bg-light': '#ffffff',
-                        'primary-text-light': '#1f2937',
-                        'secondary-text-light': '#6b7280',
-                        'accent-light': '#4c51bf',
-                        'primary-bg-dark': '#111827',
-                        'secondary-bg-dark': '#1f2937',
-                        'primary-text-dark': '#f3f4f6',
-                        'secondary-text-dark': '#9ca3af',
-                        'accent-dark': '#6366f1',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .dark .bg-primary-bg-light { background-color: #111827; }
-        .dark .bg-secondary-bg-light { background-color: #1f2937; }
-        .dark .text-primary-text-light { color: #f3f4f6; }
-        .dark .text-secondary-text-light { color: #9ca3af; }
-        .dark .text-accent-light { color: #6366f1; }
-        .dark .shadow-md { --tw-shadow-color: rgba(0, 0, 0, 0.5); }
-
-        .card-image-placeholder {
-            background-color: #d1d5db;
-            color: #4b5563;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            height: 200px;
-            width: 100%;
-        }
-        .dark .card-image-placeholder {
-            background-color: #4b5563;
-            color: #e5e7eb;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Your Dreams</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-primary-bg-light text-primary-text-light font-sans">
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">Deandrie Portfolio</div>
+      <ul class="nav-menu">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="../about/about.html">About Me</a></li>
+    <li><a href="../projects/prodjects.html">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-50 p-4 bg-secondary-bg-light dark:bg-secondary-bg-dark shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-accent-light">
-                <span class="logo-text">Seu Logotipo</span>
-            </a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#about" class="text-secondary-text-light hover:text-accent-light transition-colors">Sobre</a>
-                <a href="#projects" class="text-secondary-text-light hover:text-accent-light transition-colors">Projetos</a>
-                <a href="#contact" class="text-secondary-text-light hover:text-accent-light transition-colors">Contato</a>
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                    <!-- Ícone do sol (modo claro) -->
-                    <svg id="sun-icon" class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1m-16 0H3m15.364 6.364l-.707.707M6.343 6.343l-.707-.707m12.728 0l-.707-.707m-12.728 0l-.707.707M12 12a4 4 0 110-8 4 4 0 010 8z" />
-                    </svg>
-                    <!-- Ícone da lua (modo escuro) -->
-                    <svg id="moon-icon" class="w-6 h-6 text-gray-400 hidden" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                </button>
-            </div>
-            <div class="md:hidden flex items-center">
-                <button id="mobile-menu-button" class="text-accent-light focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-                <button id="mobile-theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors ml-2">
-                    <svg id="mobile-sun-icon" class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1m-16 0H3m15.364 6.364l-.707.707M6.343 6.343l-.707-.707m12.728 0l-.707-.707m-12.728 0l-.707.707M12 12a4 4 0 110-8 4 4 0 010 8z" />
-                    </svg>
-                    <svg id="mobile-moon-icon" class="w-6 h-6 text-gray-400 hidden" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                </button>
-            </div>
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">CODE YOUR DREAMS INTO REALITY</h1>
+        <p class="hero-description">
+          Welcome to my portfolio, where I showcase my projects and skills in the world of programming.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary" data-action="learn-more">LEARN MORE</button>
+    
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden mt-4 text-center">
-            <a href="#about" class="block py-2 text-secondary-text-light hover:text-accent-light transition-colors border-b border-gray-200 dark:border-gray-700">Sobre</a>
-            <a href="#projects" class="block py-2 text-secondary-text-light hover:text-accent-light transition-colors border-b border-gray-200 dark:border-gray-700">Projetos</a>
-            <a href="#contact" class="block py-2 text-secondary-text-light hover:text-accent-light transition-colors">Contato</a>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-code">
+          <span>&lt;/&gt;</span>
         </div>
-    </nav>
+      </div>
+    </div>
+  </header>
 
-    <main class="container mx-auto p-8 max-w-7xl">
+  <!-- Intro Section -->
+  <section class="intro" id="about">
+    <div class="container">
+      <h2 class="section-title">GET TO KNOW ME</h2>
+      <div class="intro-content">
+        <div class="intro-text">
+          <div class="intro-card">
+            <h3>My Mission</h3>
+            <p>
+              Welcome to my coding wonderland, where every click and tap opens a doorway to the magical world of programming!
+            </p>
+          </div>
+          <div class="intro-card">
+            <h3>My Vision</h3>
+            <p>
+              I'm here to learn and grow, turning every line of code into a stepping stone towards my dreams.
+              I'm still a beginner, but with each project, I gain more confidence and skills.
+              <a href="#" class="learn-more-link" data-action="learn-more">Learn more</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Home Section -->
-        <section id="home" class="py-20 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-accent-light mb-4">Olá, eu sou [Seu Nome]</h1>
-            <p class="text-lg md:text-xl text-secondary-text-light mb-8">Desenvolvedor Web Front-end especializado em criar interfaces bonitas e funcionais.</p>
-            <a href="#contact" class="px-6 py-3 bg-accent-light text-white rounded-full font-semibold hover:bg-indigo-700 transition-colors">Entre em Contato</a>
-        </section>
+  <!-- Community & Skills Section -->
+  <section class="community" id="community">
+    <div class="container">
+      <h2 class="section-title">JOIN MY CODING JOURNEY</h2>
+      <p class="section-subtitle">I'm excited to share my progress and learn from others!</p>
 
-        <!-- About Section -->
-        <section id="about" class="py-20">
-            <h2 class="text-3xl font-bold text-center mb-10">Sobre Mim</h2>
-            <div class="bg-secondary-bg-light dark:bg-secondary-bg-dark p-8 rounded-lg shadow-lg">
-                <p class="text-lg text-secondary-text-light leading-relaxed">
-                    Sou um desenvolvedor web com paixão por criar experiências digitais intuitivas e dinâmicas. Tenho experiência em HTML, CSS e JavaScript, e estou sempre aprendendo novas tecnologias para aprimorar minhas habilidades. Minha meta é transformar ideias complexas em soluções simples e elegantes.
-                </p>
+      <div class="community-content">
+        <!-- Social Links -->
+        <div class="social-links-section">
+          <h3>Follow My Journey</h3>
+          <div class="social-grid" id="social-grid">
+            <!-- Social cards will be generated by JavaScript -->
+          </div>
+        </div>
+        
+        <!-- Tech Stack -->
+        <div class="tech-stack-section">
+          <h3>Our Tech Stack</h3>
+          <div class="tech-grid" id="tech-grid">
+            <!-- Tech items will be generated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2 class="section-title">LET'S WORK TOGETHER</h2>
+          <p class="contact-intro">
+            my contact information
+          </p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <p>deandrie1234@gmail.com</p>
+              </div>
             </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20">
-            <h2 class="text-3xl font-bold text-center mb-10">Meus Projetos</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Projeto 1 -->
-                <div class="bg-secondary-bg-light dark:bg-secondary-bg-dark rounded-lg shadow-lg overflow-hidden">
-                    <div class="card-image-placeholder">Imagem do Projeto 1</div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Título do Projeto 1</h3>
-                        <p class="text-secondary-text-light mb-4">Uma breve descrição do projeto. Detalhe o que foi feito e as tecnologias utilizadas.</p>
-                        <a href="https://github.com" target="_blank" class="text-accent-light hover:underline font-medium">Ver Projeto &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- Projeto 2 -->
-                <div class="bg-secondary-bg-light dark:bg-secondary-bg-dark rounded-lg shadow-lg overflow-hidden">
-                    <div class="card-image-placeholder">Imagem do Projeto 2</div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Título do Projeto 2</h3>
-                        <p class="text-secondary-text-light mb-4">Outra breve descrição. Mostre o valor e a funcionalidade do projeto.</p>
-                        <a href="https://github.com" target="_blank" class="text-accent-light hover:underline font-medium">Ver Projeto &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- Projeto 3 -->
-                <div class="bg-secondary-bg-light dark:bg-secondary-bg-dark rounded-lg shadow-lg overflow-hidden">
-                    <div class="card-image-placeholder">Imagem do Projeto 3</div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Título do Projeto 3</h3>
-                        <p class="text-secondary-text-light mb-4">Mais uma descrição. Mencione se o projeto foi pessoal ou para um cliente.</p>
-                        <a href="https://github.com" target="_blank" class="text-accent-light hover:underline font-medium">Ver Projeto &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- Adicione mais projetos aqui -->
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.27099 2.11999 4.18C2.095 3.90347 2.12787 3.62476 2.21649 3.36162C2.30512 3.09849 2.44756 2.85669 2.63476 2.65162C2.82196 2.44655 3.0498 2.28271 3.30379 2.17052C3.55777 2.05833 3.83233 2.00026 4.10999 2H7.10999C7.59523 1.99522 8.06721 2.16708 8.43928 2.48353C8.81134 2.79999 9.06063 3.23945 9.13999 3.72C9.28952 4.68007 9.53886 5.62273 9.87999 6.53C10.0281 6.88792 10.0729 7.28144 10.0106 7.66397C9.94838 8.04649 9.78151 8.40478 9.52999 8.7L8.08999 10.14C9.51355 12.6592 11.6408 14.7865 14.16 16.21L15.6 14.77C15.8952 14.5185 16.2535 14.3516 16.636 14.2894C17.0186 14.2271 17.4121 14.2719 17.77 14.42C18.6773 14.7611 19.6199 15.0105 20.58 15.16C21.0657 15.2403 21.5093 15.4947 21.8241 15.8736C22.1388 16.2525 22.3028 16.7328 22.29 17.22L22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Phone</h4>
+                <p>+27 82 892 0245</p>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <h2 class="text-3xl font-bold text-center mb-10">Entre em Contato</h2>
-            <div class="bg-secondary-bg-light dark:bg-secondary-bg-dark p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
-                <p class="text-lg text-secondary-text-light text-center mb-6">
-                    Interessado em colaborar ou apenas bater um papo? Sinta-se à vontade para me enviar uma mensagem!
-                </p>
-                <form action="mailto:seuemail@exemplo.com" method="post" enctype="text/plain" class="space-y-4">
-                    <div>
-                        <label for="name" class="block text-sm font-medium mb-1">Nome</label>
-                        <input type="text" id="name" name="name" class="w-full p-2 rounded-md bg-primary-bg-light dark:bg-primary-bg-dark border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-accent-light" required>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium mb-1">Email</label>
-                        <input type="email" id="email" name="email" class="w-full p-2 rounded-md bg-primary-bg-light dark:bg-primary-bg-dark border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-accent-light" required>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium mb-1">Mensagem</label>
-                        <textarea id="message" name="message" rows="5" class="w-full p-2 rounded-md bg-primary-bg-light dark:bg-primary-bg-dark border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-accent-light" required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="px-6 py-3 bg-accent-light text-white rounded-full font-semibold hover:bg-indigo-700 transition-colors">Enviar Mensagem</button>
-                    </div>
-                </form>
-            </div>
-        </section>
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 Deandrie Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-    </main>
-
-    <footer class="text-center py-6 bg-secondary-bg-light dark:bg-secondary-bg-dark text-secondary-text-light text-sm">
-        <p>&copy; <span id="current-year"></span> Seu Nome. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Alternar modo claro/escuro
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
-            const sunIcon = document.getElementById('sun-icon');
-            const moonIcon = document.getElementById('moon-icon');
-            const mobileSunIcon = document.getElementById('mobile-sun-icon');
-            const mobileMoonIcon = document.getElementById('mobile-moon-icon');
-
-            const isDarkMode = localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-            if (isDarkMode) {
-                document.documentElement.classList.add('dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-                mobileSunIcon.classList.add('hidden');
-                mobileMoonIcon.classList.remove('hidden');
-            } else {
-                document.documentElement.classList.remove('dark');
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
-                mobileSunIcon.classList.remove('hidden');
-                mobileMoonIcon.classList.add('hidden');
-            }
-
-            const toggleTheme = () => {
-                const isDark = document.documentElement.classList.toggle('dark');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                sunIcon.classList.toggle('hidden', isDark);
-                moonIcon.classList.toggle('hidden', !isDark);
-                mobileSunIcon.classList.toggle('hidden', isDark);
-                mobileMoonIcon.classList.toggle('hidden', !isDark);
-            };
-
-            themeToggleBtn.addEventListener('click', toggleTheme);
-            mobileThemeToggleBtn.addEventListener('click', toggleTheme);
-
-            // Menu mobile
-            const mobileMenuBtn = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            // Fecha o menu móvel ao clicar em um link
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-
-            // Atualiza o ano no rodapé
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-        });
-    </script>
+  <script src="java1.js"></script>
 </body>
 </html>
