@@ -75,6 +75,7 @@
             // Atualiza o ano no rodapé
             document.getElementById('current-year').textContent = new Date().getFullYear();
         });
+
 document.addEventListener('DOMContentLoaded', () => {
     const itensHabilidade = document.querySelectorAll('.habilidade-item');
 
