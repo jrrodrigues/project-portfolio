@@ -75,3 +75,14 @@
             // Atualiza o ano no rodapé
             document.getElementById('current-year').textContent = new Date().getFullYear();
         });
+document.addEventListener('DOMContentLoaded', () => {
+    const itensHabilidade = document.querySelectorAll('.habilidade-item');
+
+    itensHabilidade.forEach(item => {
+        item.addEventListener('click', () => {
+            const habilidadeNome = item.getAttribute('data-habilidade');
+            console.log(`Você clicou na habilidade: ${habilidadeNome}`);
+            alert(`Você clicou em ${habilidadeNome}!`);
+        });
+    });
+});
