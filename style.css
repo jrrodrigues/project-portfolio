@@ -95,3 +95,72 @@
         padding: 10px;
     }
 }
+
+/* Estilo para a seção hero (topo do site) */
+.hero-section {
+    display: flex;
+    flex-direction: column; /* Para empilhar conteúdo e imagem em telas menores */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f8f8f8;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    color: #007BFF;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.hero-image-container {
+    margin-top: 40px;
+    width: 90%; /* Ocupa 90% da largura do contêiner */
+    max-width: 900px; /* Limita o tamanho máximo */
+    border-radius: 12px;
+    overflow: hidden; /* Garante que a borda arredondada seja aplicada à imagem */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Remove espaço extra abaixo da imagem */
+}
+
+/* Responsividade para a seção hero */
+@media (min-width: 768px) {
+    .hero-section {
+        flex-direction: row; /* Lado a lado em telas maiores */
+        justify-content: space-around;
+        padding: 80px 40px;
+    }
+
+    .hero-content {
+        text-align: left;
+        max-width: 50%; /* Ocupa metade da largura */
+        margin-right: 30px;
+    }
+
+    .hero-image-container {
+        margin-top: 0;
+        width: 45%; /* Imagem ocupa a outra metade */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+    }
+}
